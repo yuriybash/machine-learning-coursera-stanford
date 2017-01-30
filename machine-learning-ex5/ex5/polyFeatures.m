@@ -16,6 +16,9 @@ X_poly = zeros(numel(X), p);
 % 
 
 
+for exp_ = 1:p
+	X_poly(:, exp_) = X.^exp_;
+end
 
 
 
