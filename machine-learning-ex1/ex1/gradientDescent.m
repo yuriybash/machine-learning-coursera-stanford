@@ -31,7 +31,6 @@ for iter = 1:num_iters
     theta(1) = theta(1); - (alpha/m)*theta_0_sum;
     theta(2) = theta(2); - (alpha/m)*theta_1_sum;
 
-
     % ============================================================
 
     % Save the cost J in every iteration    
