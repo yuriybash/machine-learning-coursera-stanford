@@ -17,12 +17,8 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
 
-    theta_0 = theta(1);
-    theta_1 = theta(2);
-
     theta_0_sum = 0;
     theta_1_sum = 0;
-
 
     for row_num = 1:m
         hypothesis_y = theta' * X(row_num,:)';
@@ -32,8 +28,8 @@ for iter = 1:num_iters
     end
 
 
-    theta(1) = theta_0 - (alpha/m)*theta_0_sum;
-    theta(2) = theta_1 - (alpha/m)*theta_1_sum;
+    theta(1) = theta(1); - (alpha/m)*theta_0_sum;
+    theta(2) = theta(2); - (alpha/m)*theta_1_sum;
 
 
     % ============================================================
