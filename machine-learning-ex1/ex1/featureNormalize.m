@@ -31,7 +31,7 @@ for dimension = 1:size(X, 2)
 	mu(dimension) = mean(X(:, dimension));
 	X_norm(:,dimension) = X(:,dimension) - mu(dimension);
 	sigma(dimension) = std(X(:, dimension));
-	X_norm(:,dimension) = X(:,dimension) / sigma(dimension)
+	X_norm(:,dimension) = X_norm(:,dimension) / sigma(dimension);
 end
 
 

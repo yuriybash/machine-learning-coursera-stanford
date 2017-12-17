@@ -13,8 +13,13 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
+for row = 1:m
+	hypothesis_y = dot(X(row,:), theta);
+	delta = hypothesis_y - y(row);
+	J = J + (delta*delta);
+end
 
-
+J = (1/(2*m))*J;
 
 
 % =========================================================================
