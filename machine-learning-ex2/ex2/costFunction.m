@@ -25,7 +25,7 @@ for row = 1:m
 	second_ = (1-y(row))*log(1-sigmoid(dot(theta', X(row,:))));
 	J = J + (first_ - second_);
 end
-J = J / m
+J = J / m;
 
 for row = 1:m
 	first_ = sigmoid(dot(theta', X(row,:)));
