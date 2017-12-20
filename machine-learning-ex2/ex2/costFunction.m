@@ -20,12 +20,19 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
-keyboard();
+for row = 1:m
+	first_ = -y(row)*log(sigmoid(dot(theta', X(row,:))));
+	second_ = (1-y(row))*log(1-sigmoid(dot(theta', X(row,:))));
+	J = J + (first_ - second_);
+end
+J = J / m
 
-
-
-
-
+for row = 1:m
+	first_ = sigmoid(dot(theta', X(row,:)));
+	second_ = y(row);
+	grad = grad + (first_-second_)*X(row,:)';
+end
+grad = grad / m;
 
 
 % =============================================================
