@@ -18,6 +18,7 @@ grad = zeros(size(theta));
 %               derivatives of the cost w.r.t. each parameter in theta
 
 [J, _] = costFunction(theta, X, y);
+J = J + sum((lambda/(2*m))*(theta(2:size(theta)).^2));
 
 for row = 1:m
 	first_ = sigmoid(dot(theta', X(row,:)));
@@ -25,7 +26,7 @@ for row = 1:m
 	grad = grad + (first_-second_)*X(row,:)';
 end
 grad = grad / m;
-grad = [grad(1);grad(2:size(grad)) + ((lambda/m)*theta(2:size(grad)))]
+grad = [grad(1);grad(2:size(grad)) + ((lambda/m)*theta(2:size(grad)))];
 
 % =============================================================
 
