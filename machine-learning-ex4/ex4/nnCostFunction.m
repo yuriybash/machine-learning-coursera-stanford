@@ -62,16 +62,16 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
-
-a1 = [ones(1,m); X'];
-a2 = sigmoid(Theta1*a1);
-a2 = [ones(1, m) ; a2];
-a3 = sigmoid(Theta2*a2);
+a1 = [ones(size(X)(1), 1) X];
+z2 = a1 * Theta1';
+a2 = [ones(size(z2, 1), 1) sigmoid(z2)];
+z3 = a2*Theta2';
+h_theta = a3 = sigmoid(z3);
 
 for example = 1:m
 	for class_ = 1:num_labels
 		y_k_i = (y(example) == class_);
-		h_theta_k = a3(class_, example);
+		h_theta_k = a3(example, class_);
 		first_ = -y_k_i*log(h_theta_k);
 		second_ = (1-y_k_i)*log(1-h_theta_k);
 
@@ -97,9 +97,7 @@ for j = 1:size(Theta2)(1)
 end
 
 penalty = (lambda/(2*m))*penalty;
-
 J = J + penalty;
-
 
 
 % -------------------------------------------------------------
