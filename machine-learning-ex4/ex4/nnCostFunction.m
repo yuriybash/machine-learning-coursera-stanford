@@ -102,6 +102,34 @@ J = J + penalty;
 
 % -------------------------------------------------------------
 
+
+y_expanded = zeros(size(y)(1), 3);
+for x = 1:m
+	y_expanded(x, y(x)) = 1;
+end
+
+
+
+a1 = [ones(size(X)(1), 1) X];
+z2 = a1 * Theta1';
+a2 = [ones(size(z2, 1), 1) sigmoid(z2)];
+z3 = a2*Theta2';
+h_theta = a3 = sigmoid(z3);
+
+d3 = a3 - y_expanded;
+d2 = (d3*Theta2(:, 2:end)).*sigmoidGradient(z2);
+
+Delta1 = d2' * a1;
+Delta2 = d3'* a2;
+
+
+
+Theta1_grad = Delta1./m;
+Theta2_grad = Delta2./m;
+
+
+
+
 % =========================================================================
 
 % Unroll gradients
