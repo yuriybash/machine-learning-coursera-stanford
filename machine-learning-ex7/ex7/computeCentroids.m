@@ -27,7 +27,19 @@ centroids = zeros(K, n);
 %
 
 
+example_count_per_centroid = zeros(K,1);
+for centroid_idx=1:K
+	for example_row_num=1:m
+		if(idx(example_row_num) == centroid_idx)
+			example = X(example_row_num,:)
+			centroids(centroid_idx,:)+=example;
+			example_count_per_centroid(centroid_idx)+=1
+		endif
+	end
+end
 
+
+centroids = (centroids)./(example_count_per_centroid)
 
 
 
