@@ -20,7 +20,8 @@ S = zeros(n);
 %       number of examples).
 %
 
-
+cv_matrix = (1/m)*(X'*X);
+[U, S, V] = svd(cv_matrix);
 
 
 
